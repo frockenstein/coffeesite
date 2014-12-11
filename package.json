@@ -1,0 +1,28 @@
+{
+  "name": "coffeesite",
+  "version": "1.0.0",
+  "description": "One dialect to rule them all",
+  "main": "index.html",
+  "devDependencies": {
+    "ccss": "latest",
+    "clean-css": "^2.2.21",
+    "coffeecup": "latest",
+    "jshint": "latest"
+  },
+  "scripts": {
+    "clean": "rm -rf dist/*",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npm run build:js && jshint dist/app.js",
+    "build:css": "coffee ccss.coffee",
+    "build:js": "cat src/js/*.coffee | coffee -cs > dist/app.js",
+    "build:html": "coffeecup -o dist -f src/index.coffee",
+    "build": "npm run clean && npm run build:css && npm run build:js && npm run build:html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.3.3",
+    "nodemon": "^1.2.1",
+    "serve-static": "^1.7.1"
+  }
+}
