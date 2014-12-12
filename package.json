@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "One dialect to rule them all",
   "main": "index.html",
+  "config": { "port": "8080" },
   "devDependencies": {
     "ccss": "latest",
     "clean-css": "^2.2.21",
@@ -15,8 +16,9 @@
     "lint": "npm run build:js && jshint dist/app.js",
     "build:css": "coffee ccss.coffee",
     "build:js": "cat src/js/*.coffee | coffee -cs > dist/app.js",
-    "build:html": "coffeecup -o dist -f src/index.coffee",
-    "build": "npm run clean && npm run build:css && npm run build:js && npm run build:html"
+    "build:html": "coffeecup -o dist -f src/*.coffee",
+    "build": "npm run clean && npm run build:css && npm run build:js && npm run build:html",
+    "start": "coffee server.coffee"
   },
   "author": "",
   "license": "ISC",
